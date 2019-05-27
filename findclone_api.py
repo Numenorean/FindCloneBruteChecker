@@ -3,8 +3,8 @@ import requests
 l_url = 'https://findclone.ru/login'
 
 
-def check(phone, password):
-    l = requests.post(l_url, data={'phone':phone, 'password':password}).json()
+def check(phone, password, proxies=None):
+    l = requests.post(l_url, data={'phone':phone, 'password':password}, proxies=proxies).json()
     if 'Error' in list(l.keys()):
         return None
     else:
