@@ -12,7 +12,7 @@ def check(phone, password, proxies=None):
         quantity = l['Quantity']
         typename = l['TypeName']
         return '''
-Данные для входа: {}:{}
+Данные для входа - {}:{}
 Период: осталось {} дней
 Осталось запросов: {}
 Тариф: {}
