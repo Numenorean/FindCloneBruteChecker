@@ -30,15 +30,18 @@ class Checker(object):
             file = [pr.rstrip() for pr in file]
             for lines in file:
                 data = lines.replace('\n', '')
-                self.proxies.append({'proxy':{'socks4': 'socks4://'+data}})
+                self.proxies.append({'proxy':{'http': 'socks4://'+data,
+                                              'https':'socks4://'+data}})
                 
         elif p_type == 'socks5' or p_type == '3':
             file = open(proxies_path, 'r').readlines()
             file = [pr.rstrip() for pr in file]
             for lines in file:
                 data = lines.replace('\n', '')
-                self.proxies.append({'proxy':{'socks5': 'socks5://'+data}})
-        else: self.proxies.append(None)
+                self.proxies.append({'proxy':{'http': 'socks5://'+data,
+                                              'https': 'socks5://'+data}})
+                
+        else: self.proxies.append({'proxy':None})
         
             
     def load(self, base_path):
